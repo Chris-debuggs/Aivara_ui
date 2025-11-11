@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Vibrant Healthcare color palette */
+    --background: 210 40% 98%;
+    --foreground: 215 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 30% 12%;
+
+    /* Trust Blue - Primary brand color (more vibrant) */
+    --primary: 214 95% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 95% 48%;
+    --primary-light: 214 95% 95%;
+
+    /* Health Green - Accent color (more vibrant) */
+    --secondary: 165 65% 52%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 165 65% 45%;
+
+    /* Purple accent for variety */
+    --tertiary: 280 70% 62%;
+    --tertiary-foreground: 0 0% 100%;
+
+    /* Warning Orange */
+    --warning: 38 95% 58%;
+    --warning-foreground: 0 0% 100%;
+
+    --muted: 210 35% 93%;
+    --muted-foreground: 215 20% 40%;
+
+    --accent: 280 70% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 90% 62%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 30% 88%;
+    --input: 214 30% 88%;
+    --ring: 214 95% 55%;
+
+    --radius: 1rem;
+
+    /* Vibrant Chart colors */
+    --chart-1: 214 95% 55%;
+    --chart-2: 165 65% 52%;
+    --chart-3: 280 70% 62%;
+    --chart-4: 38 95% 58%;
+    --chart-5: 340 85% 55%;
+
+    /* Enhanced Shadows and effects */
+    --shadow-soft: 0 2px 12px -2px hsl(214 95% 55% / 0.15);
+    --shadow-medium: 0 8px 32px -4px hsl(214 95% 55% / 0.2);
+    --shadow-large: 0 16px 56px -8px hsl(214 95% 55% / 0.25);
+    
+    /* Vibrant Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 95% 55%), hsl(214 95% 70%));
+    --gradient-health: linear-gradient(135deg, hsl(165 65% 52%), hsl(165 65% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 95% 55%) 0%, hsl(280 70% 62%) 50%, hsl(165 65% 52%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(214 95% 98%) 0%, hsl(280 70% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(280 70% 62%), hsl(340 85% 55%));
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 215 28% 7%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 25% 10%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 214 92% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 92% 50%;
+    --primary-light: 214 92% 20%;
+
+    --secondary: 165 56% 58%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 165 56% 50%;
+
+    --muted: 215 25% 15%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 165 56% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 214 92% 58%;
+
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 24px -4px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 16px 48px -8px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-health {
+    background: var(--gradient-health);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(214 95% 55% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(214 95% 55% / 0.6);
+    }
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
